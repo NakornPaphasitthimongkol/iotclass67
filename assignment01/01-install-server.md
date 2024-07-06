@@ -1,10 +1,33 @@
 # Install Server and Docker
 
 ## How to install Server
-1. download Ubuntu Server to USB
+1. download Ubuntu Server 24.04 to USB
 2. Setup and apt-get update to Ubuntu Server
 3. download tools such as vim, ifconfig, screen
 
+    # install wireless-tools, net-tools, git, vim
+    $ sudo apt install wireless-tools net-tools git vim
+
+    # git clone project
+    $ git clone https://github.com/sergio11/iot_event_streaming_architecture.git
+4. set up Docker and Run
+    # use vim edit file
+    $ sudo vim /etc/docker/daemon.json
+
+    # Put this text in the file.
+    {
+      "dns": ["8.8.8.8", "8.8.4.4"]
+    }
+
+    # restart service docker
+    $ sudo systemctl restart docker
+
+    # docker login
+    $ sudo docker login
+
+    # into project and docker compose
+    $ cd iot_event_streaming_architecture
+    $ sudo docker compose up
 ## How to install Docker
 
 1. go to this website https://docs.docker.com/engine/install/ubuntu/
